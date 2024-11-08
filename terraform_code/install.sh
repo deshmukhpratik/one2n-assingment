@@ -6,8 +6,11 @@ sudo apt install -y python3-pip git
 pip3 install --upgrade pip
 pip3 install Flask boto3
 
-# Install and configure Docker
-sudo apt install -y docker.io
+# Installing Docker 
+#!/bin/bash
+sudo apt update
+sudo apt install docker.io -y
+sudo usermod -aG docker jenkins
 sudo usermod -aG docker ubuntu
 sudo systemctl restart docker
-sleep 5  # Allow Docker to restart fully
+sudo chmod 777 /var/run/docker.sock
